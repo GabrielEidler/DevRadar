@@ -4,11 +4,11 @@
 
 const express = require("express"),
       app = express(),
-      routes = require("../routes/routes.js"),
+      routes = require("./routes"),
       mongoose = require("mongoose");
 
 
-
+//express.json needs to come before.
 app.use(express.json());
 app.use(routes);
 
@@ -22,7 +22,8 @@ mongoose.connect(
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useFindAndModify: false
+      useFindAndModify: false,
+      useCreateIndex: true,
     }
   );
 
